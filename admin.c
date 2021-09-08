@@ -63,9 +63,27 @@ void count_attendance()
 {
     int i,count=0;
     for(i=0;i<TOTAL_EMPLOYEES;i++)
-    {
         if(employees[i].counter>=1)
             count++;
-    }
     printf("\nNumber of employees came today= %d",count);
+}
+
+void add_employee()
+{
+    struct Employee emp;
+    printf("\nEnter employee id=");
+    scanf("%d",&emp.emp_id);
+    fflush(stdin);
+    printf("\nEnter employee name=");
+    fgets(emp.name,50,stdin);
+    printf("\nEnter age=");
+    scanf("%d",&emp.age);
+    printf("\nEnter contact number=");
+    scanf("%lu",&emp.contact_number);
+    fflush(stdin);
+    printf("\nEnter address=");
+    fgets(emp.address,50,stdin);
+    emp.counter=-1;
+    append_to_file("./employee_details.dat",&emp);
+    printf("\nNew employee details successfully witten to 'employee_details.dat' file");
 }

@@ -26,6 +26,9 @@ int main()
                 admin_mode();       
                 break;
 
+            case 3:
+                exit(1);
+                
             default:
                 printf("\nInvalid option selected!!!");
         }

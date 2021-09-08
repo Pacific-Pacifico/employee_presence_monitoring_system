@@ -80,3 +80,17 @@ void move_in()
     index=search(id);
     employees[index].counter++;
 }
+
+void read_employees()
+{
+    int i;
+    for(int i=0;i<TOTAL_EMPLOYEES;i++)
+    {
+
+    }
+}
+
+void show_employee_details()
+{
+    
+}

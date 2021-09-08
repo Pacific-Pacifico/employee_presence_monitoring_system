@@ -24,6 +24,7 @@ void admin_mode()
         switch(option)
         {
             case 1:
+                count_attendance();
                 break;
 
             case 2:
@@ -56,4 +57,15 @@ void admin_mode()
         printf("\n\nEnter y/Y and press enter to continue..");
         scanf(" %c",&ch);
     } while (ch=='Y' || ch=='y');
+}
+
+void count_attendance()
+{
+    int i,count=0;
+    for(i=0;i<TOTAL_EMPLOYEES;i++)
+    {
+        if(employees[i].counter>=1)
+            count++;
+    }
+    printf("\nNumber of employees came today= %d",count);
 }

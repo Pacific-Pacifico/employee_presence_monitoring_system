@@ -20,6 +20,7 @@ void employee_mode()
         switch(option)
         {
             case 1:
+                mark_attendance();
                 break;
 
             case 2:
@@ -40,4 +41,42 @@ void employee_mode()
         printf("\n\nEnter y/Y and press enter to continue..");
         scanf(" %c",&ch);
     } while (ch=='Y' || ch=='y');
+}
+
+int search(int id)
+{
+    int i;
+    for(i=0;i<TOTAL_EMPLOYEES;i++)
+    {
+        if(employees[i].emp_id==id)
+            return i;
+    }
+    return -1;
+}
+
+void mark_attendance()
+{   
+    int id,index;
+    printf("\nEnter employee id=");
+    scanf("%d",&id);
+    index=search(id);
+    employees[index].counter=1;
+}
+
+void move_out()
+{
+    int id,index;
+    printf("\nEnter employee id=");
+    scanf("%d",&id);
+    index=search(id);
+    employees[index].counter++;
+}
+
+void move_in()
+{
+    int id,index;
+    printf("\nEnter employee id=");
+    scanf("%d",&id);
+    index=search(id);
+    employees[index].counter++;
 }

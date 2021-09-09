@@ -32,7 +32,7 @@ void read_from_file(char file_path[])
 
     // read file contents till end of file
     while(fread(&emp, sizeof(struct Employee), 1, fin))
-        show_employee_details(&emp);
+        show_employee_details(emp);
   
     // close file
     fclose(fin);

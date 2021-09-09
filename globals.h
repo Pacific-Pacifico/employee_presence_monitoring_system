@@ -16,6 +16,7 @@ void mark_attendance();
 void move_out();
 void move_in();
 void show_employee_details();
+void all_employees_details();
 
 
 void admin_mode();

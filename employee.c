@@ -90,7 +90,11 @@ void read_employees()
     }
 }
 
-void show_employee_details()
+void show_employee_details(struct Employee emp)
 {
-    
+    printf("\nEmployee id: %d",emp.emp_id);
+    printf("\nEmployee name: %s",emp.name);
+    printf("\nEmployee age: %d",emp.age);
+    printf("\nEmployee contact number: %ld",emp.contact_number);
+    printf("\nEmployee address: %s",emp.address);
 }

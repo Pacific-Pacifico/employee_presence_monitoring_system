@@ -17,8 +17,10 @@ void admin_mode()
         printf("\n5.Name of the employees out for particular time period");
         printf("\n6.Employees who came within range of ids and how often they entered");
         printf("\n7.Change admin password");
-        printf("\n8.Go to main menu");
-        printf("\n9.Exit");
+        printf("\n8.Add employee");
+        printf("\n9.Get all employees details");
+        printf("\n9.Go to main menu");
+        printf("\n10.Exit");
         printf("\nEnter the option=");
         scanf("%d",&option);
         switch(option)
@@ -46,9 +48,17 @@ void admin_mode()
                 break;
 
             case 8:
-                return;
+                add_employee();
+                break;
 
             case 9:
+                all_employees_details();
+                break;
+
+            case 10:
+                return;
+
+            case 11:
                 exit(1);
 
             default:
@@ -73,17 +83,24 @@ void add_employee()
     struct Employee emp;
     printf("\nEnter employee id=");
     scanf("%d",&emp.emp_id);
-    fflush(stdin);
+    while ((getchar()) != '\n');
     printf("\nEnter employee name=");
     fgets(emp.name,50,stdin);
     printf("\nEnter age=");
     scanf("%d",&emp.age);
     printf("\nEnter contact number=");
     scanf("%lu",&emp.contact_number);
-    fflush(stdin);
+    while ((getchar()) != '\n');
     printf("\nEnter address=");
     fgets(emp.address,50,stdin);
     emp.counter=-1;
-    append_to_file("./employee_details.dat",&emp);
+    printf("\n\nEmployee details:");
+    show_employee_details(emp);
+    append_to_file("./employees_details.dat",&emp);
     printf("\nNew employee details successfully witten to 'employee_details.dat' file");
+}
+
+void all_employees_details()
+{
+    read_from_file("./employees_details.dat");
 }

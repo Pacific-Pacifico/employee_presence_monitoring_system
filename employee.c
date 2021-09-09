@@ -68,7 +68,7 @@ void mark_attendance()
         printf("\nId not found!!!");
         return;
     }
-    if(employees[index].counter==1)
+    if(employees[index].counter>=1)
     {
         printf("\nAttendance of id= %d is already marked.",id);
         return;
@@ -93,6 +93,11 @@ void move_out()
         printf("\nPlease mark your attendance first.");
         return;
     }
+    if((employees[index].counter)%2==0)
+    {
+        printf("\nYou are already outside office.",id);
+        return;
+    }
     employees[index].counter++;
     printf("\nYou can now move out.");
 }
@@ -113,9 +118,9 @@ void move_in()
         printf("\nPlease mark your attendance first.");
         return;
     }
-    if(employees[index].counter==1)
+    if((employees[index].counter)%2!=0)
     {
-        printf("\nYou are already inside office.");
+        printf("\nYou are already inside office.",id);
         return;
     }
     employees[index].counter++;

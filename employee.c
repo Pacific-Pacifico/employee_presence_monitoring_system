@@ -25,9 +25,11 @@ void employee_mode()
                 break;
 
             case 2:
+                move_out();
                 break;
 
             case 3:
+                move_in();
                 break;
 
             case 4:
@@ -81,7 +83,18 @@ void move_out()
     printf("\nEnter employee id=");
     scanf("%d",&id);
     index=search(id);
+    if(index==-1)
+    {
+        printf("\nId not found!!!");
+        return;
+    }
+    if(employees[index].counter==0)
+    {
+        printf("\nPlease mark your attendance first.");
+        return;
+    }
     employees[index].counter++;
+    printf("\nYou can now move out.");
 }
 
 void move_in()
@@ -90,7 +103,23 @@ void move_in()
     printf("\nEnter employee id=");
     scanf("%d",&id);
     index=search(id);
+    if(index==-1)
+    {
+        printf("\nId not found!!!");
+        return;
+    }
+    if(employees[index].counter==0)
+    {
+        printf("\nPlease mark your attendance first.");
+        return;
+    }
+    if(employees[index].counter==1)
+    {
+        printf("\nYou are already inside office.");
+        return;
+    }
     employees[index].counter++;
+    printf("\nYou can now move in.");
 }
 
 void show_employee_details(struct Employee emp)

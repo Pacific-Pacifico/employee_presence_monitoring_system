@@ -94,7 +94,7 @@ void add_employee()
     while ((getchar()) != '\n');
     printf("\nEnter address=");
     fgets(emp.address,50,stdin);
-    emp.counter=-1;
+    emp.counter=0;
     printf("\n\nEmployee details:");
     show_employee_details(emp);
     append_to_file("./employees_details.dat",&emp);
@@ -105,6 +105,7 @@ void all_employees_details()
 {
     // read_from_file("./employees_details.dat");
     int i;
+    printf("\nAll employees' details");
     for(i=0;i<total_employees;i++)
         show_employee_details(employees[i]);
 }

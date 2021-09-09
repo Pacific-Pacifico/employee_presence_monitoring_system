@@ -31,6 +31,7 @@ void admin_mode()
                 break;
 
             case 2:
+                check_particular_attendance();
                 break;
 
             case 3:
@@ -77,6 +78,23 @@ void count_attendance()
         if(employees[i].counter>=1)
             count++;
     printf("\nNumber of employees came today= %d",count);
+}
+
+void check_particular_attendance()
+{
+    int id,index;
+    printf("\nEnter employee id=");
+    scanf("%d",&id);
+    index=search(id);
+    if(index==-1)
+    {
+        printf("\nId not found!!!");
+        return;
+    }
+    if(employees[index].counter>=1)
+        printf("\nEmployee with id= %d is present today.",id);
+    else
+        printf("\nEmployee with id= %d is absent today.",id);
 }
 
 void add_employee()

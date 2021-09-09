@@ -38,6 +38,28 @@ void read_from_file(char file_path[])
     fclose(fin);
 }
 
+void read_all_employees_from_file(char file_path[])
+{
+    int i;
+    struct Employee emp;
+    //open file for reading
+    FILE *fin=fopen(file_path, "r");
+    if (fin == NULL)
+    {
+        fprintf(stderr, "\nError opening file\n");
+        return;
+    }
+    i=0;
+    // read file contents till end of file
+    while(fread(&emp, sizeof(struct Employee), 1, fin))
+    {
+        employees[i]=emp;
+        i++;
+    }
+    // close file
+    fclose(fin);
+}
+
 int count_records(char file_path[])
 {
     struct Employee emp;

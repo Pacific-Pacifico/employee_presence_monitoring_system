@@ -1,5 +1,3 @@
-#define TOTAL_EMPLOYEES 10 
-
 struct Employee
 {
     int emp_id,age,counter;
@@ -7,25 +5,26 @@ struct Employee
     char name[50],address[100];
 };
 
-struct Employee employees[TOTAL_EMPLOYEES];
+extern struct Employee *employees;
+extern int total_employees;
 
-void read_employees();
 int search(int);
 void employee_mode();
 void mark_attendance();
 void move_out();
 void move_in();
-void show_employee_details();
+void show_employee_details(struct Employee);
 void all_employees_details();
 
 
 void admin_mode();
 void add_employee();
-void show_employee();
 void count_attendance();
 
+int count_records(char file_path[]);
 void append_to_file(char file_path[],struct Employee *ptr);
 void read_from_file(char file_path[]);
+void read_all_employees_from_file(char file_path[]);
 int count_records(char file_path[]);
 
 unsigned long get_timestamp();

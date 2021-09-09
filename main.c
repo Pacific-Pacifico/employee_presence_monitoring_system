@@ -2,10 +2,17 @@
 #include<stdlib.h>
 #include"globals.h"
 
+int total_employees;
+struct Employee *employees;
+
 int main()
 {
     int option;
     char ch;
+    total_employees=count_records("./employees_details.dat");
+    printf("\nTotal number of employees= %d",total_employees);
+    employees=(struct Employee *)calloc(total_employees,sizeof(struct Employee));
+    read_all_employees_from_file("./employees_details.dat");
     do
     {
         clear();

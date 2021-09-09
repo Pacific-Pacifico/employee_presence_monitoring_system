@@ -8,6 +8,7 @@ void admin_mode()
     char ch;
     do
     {
+        clear();
         printf("\n\n*****Admin mode*****");
         printf("\nSelect the required option:");
         printf("\n1.Number of employees came today");
@@ -19,8 +20,8 @@ void admin_mode()
         printf("\n7.Change admin password");
         printf("\n8.Add employee");
         printf("\n9.Get all employees details");
-        printf("\n9.Go to main menu");
-        printf("\n10.Exit");
+        printf("\n10.Go to main menu");
+        printf("\n11.Exit");
         printf("\nEnter the option=");
         scanf("%d",&option);
         switch(option)
@@ -72,7 +73,7 @@ void admin_mode()
 void count_attendance()
 {
     int i,count=0;
-    for(i=0;i<TOTAL_EMPLOYEES;i++)
+    for(i=0;i<total_employees;i++)
         if(employees[i].counter>=1)
             count++;
     printf("\nNumber of employees came today= %d",count);
@@ -97,10 +98,13 @@ void add_employee()
     printf("\n\nEmployee details:");
     show_employee_details(emp);
     append_to_file("./employees_details.dat",&emp);
-    printf("\nNew employee details successfully witten to 'employee_details.dat' file");
+    printf("\nNew employee details successfully witten to 'employees_details.dat' file");
 }
 
 void all_employees_details()
 {
-    read_from_file("./employees_details.dat");
+    // read_from_file("./employees_details.dat");
+    int i;
+    for(i=0;i<total_employees;i++)
+        show_employee_details(employees[i]);
 }

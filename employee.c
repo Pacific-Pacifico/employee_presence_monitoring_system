@@ -8,6 +8,7 @@ void employee_mode()
     char ch;
     do
     {
+        clear();
         printf("\n\n*****Employee mode*****");
         printf("\nSelect the required option:");
         printf("\n1.Mark attendance");
@@ -46,7 +47,7 @@ void employee_mode()
 int search(int id)
 {
     int i;
-    for(i=0;i<TOTAL_EMPLOYEES;i++)
+    for(i=0;i<total_employees;i++)
     {
         if(employees[i].emp_id==id)
             return i;
@@ -60,7 +61,13 @@ void mark_attendance()
     printf("\nEnter employee id=");
     scanf("%d",&id);
     index=search(id);
+    if(index==-1)
+    {
+        printf("\nId not found!!!");
+        return;
+    }
     employees[index].counter=1;
+    printf("\nAttendance of id= %d marked successfully.",id);
 }
 
 void move_out()
@@ -81,17 +88,9 @@ void move_in()
     employees[index].counter++;
 }
 
-void read_employees()
-{
-    int i;
-    for(int i=0;i<TOTAL_EMPLOYEES;i++)
-    {
-
-    }
-}
-
 void show_employee_details(struct Employee emp)
 {
+    printf("\n\n--Employee--");
     printf("\nEmployee id: %d",emp.emp_id);
     printf("\nEmployee name: %s",emp.name);
     printf("\nEmployee age: %d",emp.age);

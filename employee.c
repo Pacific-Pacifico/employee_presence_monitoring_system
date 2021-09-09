@@ -66,6 +66,11 @@ void mark_attendance()
         printf("\nId not found!!!");
         return;
     }
+    if(employees[index].counter==1)
+    {
+        printf("\nAttendance of id= %d is already marked.",id);
+        return;
+    }
     employees[index].counter=1;
     printf("\nAttendance of id= %d marked successfully.",id);
 }

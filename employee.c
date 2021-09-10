@@ -79,7 +79,8 @@ void mark_attendance()
 
 void move_out()
 {
-    int id,index;
+    int id,index,c;
+    struct Time *t;
     printf("\nEnter employee id=");
     scanf("%d",&id);
     index=search(id);
@@ -88,18 +89,32 @@ void move_out()
         printf("\nId not found!!!");
         return;
     }
-    if(employees[index].counter==0)
+    c=employees[index].counter;
+    if(c==0)
     {
         printf("\nPlease mark your attendance first.");
         return;
     }
-    if((employees[index].counter)%2==0)
+    if(c%2==0)
     {
         printf("\nYou are already outside office.");
         return;
     }
+
+    t=convert_timestamp_to_time(get_timestamp());
+    if(c==1)
+    {
+        out_time[index]=insert_beg(out_time[index],t);
+    }
+    else
+    {
+        out_time[index]=insert_end(out_time[index],t);
+    }
+
     employees[index].counter++;
     printf("\nYou can now move out.");
+    
+    show_out_times(out_time[index]);
 }
 
 void move_in()

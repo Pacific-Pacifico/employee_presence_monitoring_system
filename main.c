@@ -4,17 +4,23 @@
 #include"globals.h"
 
 int total_employees;
-struct Employee *employees;
+struct Employee *employees=NULL;
 char admin_pass[21];
+struct Time **out_time=NULL;
 
 int main()
 {
-    int option;
+    int option,i;
     char ch,*entered_pass;
     strcpy(admin_pass,"admin");
     total_employees=count_records("./employees_details.dat");
     printf("\nTotal number of employees= %d",total_employees);
     employees=(struct Employee *)calloc(total_employees,sizeof(struct Employee));
+    out_time=(struct Time **)calloc(total_employees,sizeof(struct Time *));
+    // for(i=0;i<total_employees;i++)
+    // {
+    //     printf("\nout_time[%d]= %p",i,out_time[i]);
+    // }
     read_all_employees_from_file("./employees_details.dat");
     do
     {

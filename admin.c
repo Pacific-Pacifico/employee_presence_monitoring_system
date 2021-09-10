@@ -151,7 +151,23 @@ void max_counter()
 
 void time_period_out()
 {
-      
+    short h1,m1,s1,h2,m2,s2;
+    printf("\nEnter starting hour(0-23)=");
+    scanf("%hu",&h1);
+    printf("\nEnter starting minute(0-59)=");
+    scanf("%hu",&m1);
+    printf("\nEnter starting second(0-59)=");
+    scanf("%hu",&s1);
+
+    printf("\nEnter ending hour(0-23)=");
+    scanf("%hu",&h2);
+    printf("\nEnter ending minute(0-59)=");
+    scanf("%hu",&m2);
+    printf("\nEnter ending second(0-59)=");
+    scanf("%hu",&s2);
+
+    printf("\nEmployees outside from %hu:%hu:%hu to %hu:%hu:%hu :",h1,m1,s1,h2,m2,s2);
+    
 }
 
 void range_ids()

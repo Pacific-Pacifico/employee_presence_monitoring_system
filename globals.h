@@ -17,13 +17,15 @@ struct Employee
 
 struct Time
 {
-    short hour;
-    short minute;
-    short second;
+    unsigned short hour;
+    unsigned short minute;
+    unsigned short second;
+    struct Time *next;
 };
 
 extern struct Employee *employees;
 extern int total_employees;
+extern struct Time **out_time;
 extern char admin_pass[21];
 
 int search(int);
@@ -51,7 +53,11 @@ void range_ids();
 void change_admin_pass();
 
 unsigned long get_timestamp();
-struct Time convert_timestamp_to_time(unsigned long timestamp);
+struct Time *convert_timestamp_to_time(unsigned long timestamp);
 void clear();
 
 char  *get_pass();
+
+struct Time *insert_beg(struct Time *start,struct Time *temp);
+struct Time *insert_end(struct Time *start,struct Time *temp);
+void show_out_times(struct Time *start);

@@ -1,15 +1,17 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 #include"globals.h"
 
 int total_employees;
 struct Employee *employees;
-char admin_pass[30];
+char admin_pass[21];
 
 int main()
 {
     int option;
-    char ch,entered_pass[30];
+    char ch,entered_pass[21];
+    strcpy(admin_pass,"admin");
     total_employees=count_records("./employees_details.dat");
     printf("\nTotal number of employees= %d",total_employees);
     employees=(struct Employee *)calloc(total_employees,sizeof(struct Employee));

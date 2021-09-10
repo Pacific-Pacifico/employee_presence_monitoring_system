@@ -7,6 +7,7 @@ struct Employee
 
 extern struct Employee *employees;
 extern int total_employees;
+extern char admin_pass[21];
 
 int search(int);
 void employee_mode();
@@ -15,7 +16,6 @@ void move_out();
 void move_in();
 void show_employee_details(struct Employee);
 void all_employees_details();
-
 
 void admin_mode();
 void add_employee();

@@ -5,7 +5,7 @@
 
 int check_admin_pass(char entered_pass[])
 {
-    if(strcmp(entered_pass,"admin")==0)
+    if(strcmp(entered_pass,admin_pass)==0)
         return 1;
     return 0;
 }
@@ -178,7 +178,25 @@ void range_ids()
 
 void change_admin_pass()
 {
-
+    char cur_pass[21],p1[31],p2[31];
+    printf("\nEnter current password = ");
+    scanf("%s",cur_pass);
+    if(strcmp(cur_pass,admin_pass)!=0)
+    {
+        printf("\nWrong password!!!");
+        return;
+    }
+    printf("\nEnter new password(Max length=20) = ");
+    scanf("%s",p1);
+    printf("\nConfirm password = ");
+    scanf("%s",p2);
+    if(strcmp(p1,p2)!=0)
+    {
+        printf("\nPasswords didn't match!!!");
+        return;
+    }
+    strcpy(admin_pass,p1);
+    printf("\nPassword successfully changed.");
 }
 
 void add_employee()

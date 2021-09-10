@@ -15,6 +15,13 @@ struct Employee
     char name[50],address[100];
 };
 
+struct Time
+{
+    short hour;
+    short minute;
+    short second;
+};
+
 extern struct Employee *employees;
 extern int total_employees;
 extern char admin_pass[21];
@@ -33,7 +40,7 @@ void count_attendance();
 void check_particular_attendance();
 void count_entrance();
 void max_counter();
-
+void time_period_out();
 int check_admin_pass(char entered_pass[]);
 int count_records(char file_path[]);
 void append_to_file(char file_path[],struct Employee *ptr);
@@ -44,7 +51,7 @@ void range_ids();
 void change_admin_pass();
 
 unsigned long get_timestamp();
-char *convert_timestamp_to_time(unsigned long timestamp);
+struct Time convert_timestamp_to_time(unsigned long timestamp);
 void clear();
 
 char  *get_pass();

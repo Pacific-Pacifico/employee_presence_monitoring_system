@@ -51,7 +51,7 @@ void admin_mode()
                 break;
 
             case 5:
-
+                time_period_out();
                 break;
 
             case 6:
@@ -147,6 +147,11 @@ void max_counter()
         if(employees[i].counter==max)
             show_employee_details(employees[i]);
     }
+}
+
+void time_period_out()
+{
+      
 }
 
 void range_ids()

@@ -1,9 +1,9 @@
 #if defined(_WIN32) || defined(_WIN64)
     #include<conio.h>
+    #define NEW_LINE '\r'
 #endif
 #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-    #include <termios.h>
-    #include <unistd.h>
+    #define NEW_LINE '\n'
     int getch(void);
     int getche(void);
 #endif

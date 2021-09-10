@@ -156,7 +156,7 @@ void range_ids()
     scanf("%d",&low);
     printf("\nEnter highest id=");
     scanf("%d",&high);
-    for(int i=low;i<=high && i<total_employees+1;i++)
+    for(i=low;i<=high && i<total_employees+1;i++)
     {
         found=1;
         show_employee_details(employees[i-1]);

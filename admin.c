@@ -152,6 +152,8 @@ void max_counter()
 void time_period_out()
 {
     short h1,m1,s1,h2,m2,s2;
+    int i;
+    struct Time temp,*start=NULL,*p=NULL;
     printf("\nEnter starting hour(0-23)=");
     scanf("%hu",&h1);
     printf("\nEnter starting minute(0-59)=");
@@ -165,9 +167,30 @@ void time_period_out()
     scanf("%hu",&m2);
     printf("\nEnter ending second(0-59)=");
     scanf("%hu",&s2);
-
-    printf("\nEmployees outside from %hu:%hu:%hu to %hu:%hu:%hu :",h1,m1,s1,h2,m2,s2);
     
+    printf("\nEmployees' id who went outside between %hu:%hu:%hu and %hu:%hu:%hu are :",h1,m1,s1,h2,m2,s2);
+    for(i=0;i<total_employees;i++)
+    {
+        start=out_time[i];
+        if(start==NULL)
+            continue;
+        p=start;
+        while(p!=NULL)
+        {
+            printf("\nRunning");
+            if(p->hour>=h1 && p->hour<=h2)
+            {
+                printf("\ncompared hour");
+                if((m1<=m2 && p->minute>=m1 && p->minute<=m2) || (m1>=m2 && (!(p->minute>=m1 && p->minute<=m2))))
+                {
+                    printf("\ncompared minute");
+                    // if((s1<=s2 && p->second>=s1 && p->second<=s2) || (s1>=s2 && (!(p->second>=s1 && p->second<=s2))))
+                        printf("\nEmployee id= %d",employees[i].emp_id);
+                }
+            }
+            p=p->next;
+        }
+    }
 }
 
 void range_ids()

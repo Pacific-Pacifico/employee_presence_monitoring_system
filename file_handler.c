@@ -69,7 +69,7 @@ int count_records(char file_path[])
     if (fin == NULL)
     {
         // fprintf(stderr, "\nError opening file\n");
-        return -1;
+        return 0;
     }
 
     // read file contents till end of file

@@ -46,6 +46,7 @@ void admin_mode()
                 break;
 
             case 6:
+                range_ids();
                 break;
 
             case 7:
@@ -138,11 +139,32 @@ void max_counter()
     }
 }
 
+void range_ids()
+{
+    int low,high,i,found=0,total,n;
+    printf("\nEnter lowest id=");
+    scanf("%d",&low);
+    printf("\nEnter highest id=");
+    scanf("%d",&high);
+    for(int i=low;i<=high && i<total_employees;i++)
+    {
+        show_employee_details(employees[i-1]);
+        total=employees[i-1].counter;
+        if(total%2!=0)
+            n=(total/2)+1;
+        else
+            n=total/2;
+        printf("\n\nNo of times entered= %d",n);       
+        found=1;
+    }
+    if(!found)
+        printf("\nNo employee id within provided range.");
+}
+
 void add_employee()
 {
     struct Employee emp;
-    printf("\nEnter employee id=");
-    scanf("%d",&emp.emp_id);
+    emp.emp_id=total_employees+1;
     while ((getchar()) != '\n');
     printf("\nEnter employee name=");
     fgets(emp.name,50,stdin);
@@ -158,6 +180,10 @@ void add_employee()
     show_employee_details(emp);
     append_to_file("./employees_details.dat",&emp);
     printf("\nNew employee details successfully witten to 'employees_details.dat' file");
+    printf("\nNew employee's generated id= %d",emp.emp_id);
+    employees=realloc(employees,total_employees+1);
+    employees[total_employees]=emp;
+    total_employees++;
 }
 
 void all_employees_details()

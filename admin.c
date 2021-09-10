@@ -39,6 +39,7 @@ void admin_mode()
                 break;
 
             case 4:
+                max_counter();
                 break;
 
             case 5:
@@ -115,6 +116,26 @@ void count_entrance()
     else
         n=total/2;
     printf("\nEmployee with id= %d has %d number of entrances.",id,n);
+}
+
+void max_counter()
+{
+    int i,max_index=0,max;
+    printf("\nEmployees with max number of moving out:");
+    for(i=1;i<total_employees;i++)
+    {
+        if(employees[i].counter>employees[max_index].counter)
+            max_index=i;
+    }
+    max=employees[max_index].counter;
+    show_employee_details(employees[max_index]);
+    for(i=0;i<total_employees;i++)
+    {
+        if(i==max_index)
+            continue;
+        if(employees[i].counter==max)
+            show_employee_details(employees[i]);
+    }
 }
 
 void add_employee()

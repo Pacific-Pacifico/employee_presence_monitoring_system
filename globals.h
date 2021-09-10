@@ -22,6 +22,7 @@ void add_employee();
 void count_attendance();
 void check_particular_attendance();
 void count_entrance();
+void max_counter();
 
 int count_records(char file_path[]);
 void append_to_file(char file_path[],struct Employee *ptr);

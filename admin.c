@@ -1,6 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 #include"globals.h"
+
+int check_admin_pass(char entered_pass[])
+{
+    if(strcmp(entered_pass,"admin")==0)
+        return 1;
+    return 0;
+}
 
 void admin_mode()
 {   
@@ -43,6 +51,7 @@ void admin_mode()
                 break;
 
             case 5:
+
                 break;
 
             case 6:
@@ -50,6 +59,7 @@ void admin_mode()
                 break;
 
             case 7:
+                change_admin_pass();
                 break;
 
             case 8:
@@ -164,6 +174,11 @@ void range_ids()
     }
     if(!found)
         printf("\nNo employee id within provided range.");
+}
+
+void change_admin_pass()
+{
+
 }
 
 void add_employee()

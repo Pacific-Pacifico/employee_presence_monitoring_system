@@ -4,11 +4,12 @@
 
 int total_employees;
 struct Employee *employees;
+char admin_pass[30];
 
 int main()
 {
     int option;
-    char ch;
+    char ch,entered_pass[30];
     total_employees=count_records("./employees_details.dat");
     printf("\nTotal number of employees= %d",total_employees);
     employees=(struct Employee *)calloc(total_employees,sizeof(struct Employee));
@@ -30,7 +31,12 @@ int main()
                 break;
 
             case 2:
-                admin_mode();       
+                printf("\nEnter admin password = ");
+                scanf("%s",entered_pass);
+                if(check_admin_pass(entered_pass))
+                    admin_mode();
+                else
+                    printf("\nWrong Password..");       
                 break;
 
             case 3:

@@ -24,12 +24,14 @@ void check_particular_attendance();
 void count_entrance();
 void max_counter();
 
+int check_admin_pass(char entered_pass[]);
 int count_records(char file_path[]);
 void append_to_file(char file_path[],struct Employee *ptr);
 void read_from_file(char file_path[]);
 void read_all_employees_from_file(char file_path[]);
 int count_records(char file_path[]);
 void range_ids();
+void change_admin_pass();
 
 unsigned long get_timestamp();
 char *convert_timestamp_to_time(unsigned long timestamp);

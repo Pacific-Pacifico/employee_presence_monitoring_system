@@ -2,6 +2,13 @@
 #include<time.h>
 #include"globals.h"
 
+struct Time
+{
+    short hour;
+    short minute;
+    short second;
+};
+
 unsigned long get_timestamp()
 {
     return (unsigned long)time(NULL);

@@ -146,16 +146,21 @@ void range_ids()
     scanf("%d",&low);
     printf("\nEnter highest id=");
     scanf("%d",&high);
-    for(int i=low;i<=high && i<total_employees;i++)
+    for(int i=low;i<=high && i<total_employees+1;i++)
     {
+        found=1;
         show_employee_details(employees[i-1]);
         total=employees[i-1].counter;
+        if(total==0)
+        {
+            printf("\nNot present");
+            continue;
+        }
         if(total%2!=0)
             n=(total/2)+1;
         else
             n=total/2;
         printf("\n\nNo of times entered= %d",n);       
-        found=1;
     }
     if(!found)
         printf("\nNo employee id within provided range.");

@@ -52,6 +52,7 @@ int main()
         printf("\n\nEnter y/Y and press enter to continue..");
         scanf(" %c",&ch);
     } while (ch=='Y' || ch=='y');
+    return 0;
 }
 
 void clear()

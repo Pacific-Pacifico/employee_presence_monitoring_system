@@ -37,6 +37,11 @@ char *get_pass()
 {
     char ch,*password;
     password=(char *)malloc(sizeof(char)*20);
+    if(password==NULL)
+    {
+        printf("\nNot enough memory!!!");
+        return NULL;
+    }
     // printf("password:\n");
     int i=0;
     while(1)

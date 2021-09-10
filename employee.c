@@ -95,7 +95,7 @@ void move_out()
     }
     if((employees[index].counter)%2==0)
     {
-        printf("\nYou are already outside office.",id);
+        printf("\nYou are already outside office.");
         return;
     }
     employees[index].counter++;
@@ -120,7 +120,7 @@ void move_in()
     }
     if((employees[index].counter)%2!=0)
     {
-        printf("\nYou are already inside office.",id);
+        printf("\nYou are already inside office.");
         return;
     }
     employees[index].counter++;

@@ -1,3 +1,13 @@
+#if defined(_WIN32) || defined(_WIN64)
+    #include<conio.h>
+#endif
+#if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+    #include <termios.h>
+    #include <unistd.h>
+    int getch(void);
+    int getche(void);
+#endif
+
 struct Employee
 {
     int emp_id,age,counter;
@@ -36,3 +46,5 @@ void change_admin_pass();
 unsigned long get_timestamp();
 char *convert_timestamp_to_time(unsigned long timestamp);
 void clear();
+
+char  *get_pass();

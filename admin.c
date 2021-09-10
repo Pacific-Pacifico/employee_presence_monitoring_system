@@ -178,18 +178,25 @@ void range_ids()
 
 void change_admin_pass()
 {
-    char cur_pass[21],p1[31],p2[31];
+    char cur_pass[21],p1[21],p2[21],*p;
     printf("\nEnter current password = ");
-    scanf("%s",cur_pass);
+    while ((getchar()) != '\n');
+    p=get_pass();
+    strcpy(cur_pass,p);
+    free(p);
     if(strcmp(cur_pass,admin_pass)!=0)
     {
         printf("\nWrong password!!!");
         return;
     }
     printf("\nEnter new password(Max length=20) = ");
-    scanf("%s",p1);
+    p=get_pass();
+    strcpy(p1,p);
+    free(p);
     printf("\nConfirm password = ");
-    scanf("%s",p2);
+    p=get_pass();
+    strcpy(p2,p);
+    free(p);
     if(strcmp(p1,p2)!=0)
     {
         printf("\nPasswords didn't match!!!");

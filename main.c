@@ -10,7 +10,7 @@ char admin_pass[21];
 int main()
 {
     int option;
-    char ch,entered_pass[21];
+    char ch,*entered_pass;
     strcpy(admin_pass,"admin");
     total_employees=count_records("./employees_details.dat");
     printf("\nTotal number of employees= %d",total_employees);
@@ -34,11 +34,13 @@ int main()
 
             case 2:
                 printf("\nEnter admin password = ");
-                scanf("%s",entered_pass);
+                while ((getchar()) != '\n');
+                entered_pass=get_pass();   
                 if(check_admin_pass(entered_pass))
                     admin_mode();
                 else
-                    printf("\nWrong Password..");       
+                    printf("\nWrong Password..");
+                free(entered_pass);
                 break;
 
             case 3:

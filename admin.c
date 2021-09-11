@@ -276,8 +276,21 @@ void add_employee()
     append_to_file("./employees_details.dat",&emp);
     printf("\nNew employee details successfully witten to 'employees_details.dat' file");
     printf("\nNew employee's generated id= %d",emp.emp_id);
-    employees=realloc(employees,total_employees+1);
+    employees=(struct Employee *)realloc(employees,sizeof(struct Employee)*(total_employees+1));
+    if(employees==NULL)
+    {
+        printf("\nError reallocating dynamic memory for employee");
+        return;
+    }
     employees[total_employees]=emp;
+    // printf("\ndynamic memory for employee reallocated successfully.");
+    out_time=(struct Time **)realloc(out_time,sizeof(struct Time *)*(total_employees+1));
+    if(out_time==NULL)
+    {
+        printf("\nError reallocating dynamic memory for out_time");
+        return;
+    }
+    out_time[total_employees]=NULL;
     total_employees++;
 }
 

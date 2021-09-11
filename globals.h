@@ -41,7 +41,7 @@ void add_employee();
 void count_attendance();
 void check_particular_attendance();
 void count_entrance();
-void max_counter();
+void max_move_out();
 void time_period_out();
 int check_admin_pass(char entered_pass[]);
 int count_records(char file_path[]);

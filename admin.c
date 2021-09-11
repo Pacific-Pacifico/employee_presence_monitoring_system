@@ -47,7 +47,7 @@ void admin_mode()
                 break;
 
             case 4:
-                max_counter();
+                max_move_out();
                 break;
 
             case 5:
@@ -129,7 +129,7 @@ void count_entrance()
     printf("\nEmployee with id= %d has %d number of entrances.",id,n);
 }
 
-void max_counter()
+void max_move_out()
 {
     int i,max_index=0,max;
     printf("\nEmployees with max number of moving out:");

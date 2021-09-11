@@ -49,6 +49,15 @@ char *get_pass()
         ch=getch();
         if(ch==NEW_LINE)
             break;
+        if(ch==127 || ch==8)
+        {
+            if(i>=1)
+            {
+               i--;
+               printf("\b \b");
+            }
+            continue;
+        }
         printf("*");
         password[i]=ch;
         i++;

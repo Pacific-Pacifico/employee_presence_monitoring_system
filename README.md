@@ -18,6 +18,10 @@
     8.Add employee  
     9.Get all employees details  
     10.Go to main menu  
-    11.Exit      
+    11.Exit
 
-
+#### Note :-  
+    when first time program is run ,two files "credential.dat" and "employees_details.dat" are created.  
+    "credential.dat" stores admin's password with default password 'admin' and "employees_details.bat" contains employees' data.
+    Admin can change password and the new password is written to  "credential.dat".If in case this file is deleted,then next time the program is run, new "credential.dat" is created and it contains 'admin' as default password.  
+    If "employees_details.dat" is deleted all employees' data is deleted, then admin has to again add all data.

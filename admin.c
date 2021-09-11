@@ -153,7 +153,7 @@ void time_period_out()
 {
     short h1,m1,s1,h2,m2,s2;
     int i;
-    struct Time temp,*start=NULL,*p=NULL;
+    struct Time *start=NULL,*p=NULL;
     printf("\nEnter starting hour(0-23)=");
     scanf("%hu",&h1);
     printf("\nEnter starting minute(0-59)=");
@@ -182,7 +182,6 @@ void time_period_out()
         p=start;
         while(p!=NULL)
         {
-            printf("\nRunning");
             if(p->hour>=h1 && p->hour<=h2)
             {
                 // printf("\ncompared hour");

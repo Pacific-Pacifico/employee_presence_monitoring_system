@@ -10,7 +10,7 @@ struct Time **out_time=NULL;
 
 int main()
 {
-    int option,i;
+    int option;
     char ch,*entered_pass;
     strcpy(admin_pass,read_str_from_file("./credential.dat"));
     if(admin_pass[0]=='\0')

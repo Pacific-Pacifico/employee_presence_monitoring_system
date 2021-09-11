@@ -61,3 +61,6 @@ char  *get_pass();
 struct Time *insert_beg(struct Time *start,struct Time *temp);
 struct Time *insert_end(struct Time *start,struct Time *temp);
 void show_out_times(struct Time *start);
+
+void write_str_to_file(char file_path[],char str[]);
+char *read_str_from_file(char file_path[]);

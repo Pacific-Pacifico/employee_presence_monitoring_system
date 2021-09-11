@@ -12,7 +12,12 @@ int main()
 {
     int option,i;
     char ch,*entered_pass;
-    strcpy(admin_pass,"admin");
+    strcpy(admin_pass,read_str_from_file("./credential.dat"));
+    if(admin_pass[0]=='\0')
+    {
+        write_str_to_file("./credential.dat","admin");
+        strcpy(admin_pass,read_str_from_file("./credential.dat"));
+    }
     total_employees=count_records("./employees_details.dat");
     printf("\nTotal number of employees= %d",total_employees);
     employees=(struct Employee *)calloc(total_employees,sizeof(struct Employee));

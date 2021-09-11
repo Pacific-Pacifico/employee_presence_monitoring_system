@@ -250,7 +250,9 @@ void change_admin_pass()
         printf("\nPasswords didn't match!!!");
         return;
     }
-    strcpy(admin_pass,p1);
+    write_str_to_file("./credential.dat",p1);
+    strcpy(admin_pass,read_str_from_file("./credential.dat"));
+    // strcpy(admin_pass,p1);
     printf("\nPassword successfully changed.");
 }
 

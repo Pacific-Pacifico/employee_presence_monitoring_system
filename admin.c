@@ -138,14 +138,18 @@ void max_counter()
         if(employees[i].counter>employees[max_index].counter)
             max_index=i;
     }
-    max=employees[max_index].counter;
+    max=(employees[max_index].counter/2);
     show_employee_details(employees[max_index]);
+    printf("\nNumber of times moved out= %d",(employees[max_index].counter)/2);
     for(i=0;i<total_employees;i++)
     {
         if(i==max_index)
             continue;
-        if(employees[i].counter==max)
+        if((employees[i].counter/2)==max)
+        {
             show_employee_details(employees[i]);
+            printf("\nNumber of times moved out= %d",(employees[i].counter)/2);
+        }
     }
 }
 

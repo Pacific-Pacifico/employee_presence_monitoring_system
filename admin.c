@@ -167,7 +167,12 @@ void time_period_out()
     scanf("%hu",&m2);
     printf("\nEnter ending second(0-59)=");
     scanf("%hu",&s2);
-    
+
+    if(h2<h1)
+    {
+        printf("\nInvalid time range");
+        return;
+    }
     printf("\nEmployees' id who went outside between %hu:%hu:%hu and %hu:%hu:%hu are :",h1,m1,s1,h2,m2,s2);
     for(i=0;i<total_employees;i++)
     {
@@ -180,11 +185,10 @@ void time_period_out()
             printf("\nRunning");
             if(p->hour>=h1 && p->hour<=h2)
             {
-                printf("\ncompared hour");
+                // printf("\ncompared hour");
                 if((m1<=m2 && p->minute>=m1 && p->minute<=m2) || (m1>=m2 && (!(p->minute>=m1 && p->minute<=m2))))
                 {
-                    printf("\ncompared minute");
-                    // if((s1<=s2 && p->second>=s1 && p->second<=s2) || (s1>=s2 && (!(p->second>=s1 && p->second<=s2))))
+                    // printf("\ncompared minute");
                         printf("\nEmployee id= %d",employees[i].emp_id);
                 }
             }

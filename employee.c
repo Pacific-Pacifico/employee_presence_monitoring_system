@@ -113,8 +113,8 @@ void move_out()
 
     employees[index].counter++;
     printf("\nYou can now move out.");
-    
-    show_out_times(out_time[index]);
+
+    // show_out_times(out_time[index]);
 }
 
 void move_in()
